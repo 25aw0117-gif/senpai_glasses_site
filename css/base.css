@@ -1,0 +1,1869 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=M+PLUS+Rounded+1c:wght@100&family=Noto+Serif+JP:wght@800&family=Sawarabi+Gothic&family=Zen+Antique+Soft&family=Zen+Kaku+Gothic+Antique&family=Zen+Kaku+Gothic+New&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=M+PLUS+Rounded+1c:wght@100&family=Noto+Serif+JP:wght@800&family=Sawarabi+Gothic&family=Zen+Antique+Soft&family=Zen+Kaku+Gothic+Antique&family=Zen+Kaku+Gothic+New&family=Zen+Kurenaido&display=swap');
+
+@font-face {
+	font-family: "smileySans-oblique";
+	src: url("../fonts/SmileySans-Oblique.otf") format("otf");
+}
+
+/*==============================
+   bodスタイル指定
+================================*/
+html {
+	scroll-behavior: smooth;
+	font-family: "Zen Kaku Gothic Antique", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	height: auto;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background: #f9f9f9;
+}
+
+header {
+	background: #f9f9f9;
+	margin: 0 auto;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	list-style-type: none;
+	z-index: 1000;
+}
+
+#btn-menu {
+	height: 45px;
+	border: none;
+	background: none;
+	display: none;
+	/* 通常（PC版）は非表示 */
+}
+
+#btn-menu div {
+	width: 3rem;
+	height: 0.4rem;
+	background-color: black;
+	margin: 0.5rem auto;
+	transition: all 0.3s ease-in-out;
+	transform-origin: center;
+}
+
+/*#btn-menu をクリックされたら中の<div>を×に変える*/
+#btn-menu.active div:nth-child(1) {
+	transform: rotate(45deg) translate(0.5rem, 0.8rem);
+}
+
+#btn-menu.active div:nth-child(2) {
+	opacity: 0;
+}
+
+#btn-menu.active div:nth-child(3) {
+	transform: rotate(-45deg) translate(0.5rem, -0.8rem);
+}
+
+/*参照：https://rubirubi.hateblo.jp/entry/top-back-button-css-scroll-animations-guide*/
+.top-button {
+	position: relative;
+	width: 8vw;
+	height: 8vw;
+	align-items: center;
+	border-radius: 50%;
+	background-color: white;
+	box-shadow: 5px 5px 5px rgb(0 0 0 / 5%);
+}
+
+.yajirushi::before,
+.yajirushi::after {
+	top: 52%;
+	/* 縦中央 */
+	left: 50%;
+	/* 横中央 */
+	transform: translate(-50%, -50%);
+	/* 真ん中に寄せる */
+	content: '';
+	width: 40px;
+	height: 40px;
+	background-image: url(../imgs/icon_back_to_top.svg);
+	background-size: contain;
+	position: absolute;
+	right: 0;
+}
+
+@keyframes progress {
+	0% {
+		bottom: -120px;
+	}
+
+	10% {
+		bottom: 0px;
+	}
+
+	15% {
+		bottom: 100px;
+	}
+
+	100% {
+		bottom: 100px;
+	}
+}
+
+.move-page-top {
+	position: fixed;
+	right: 10vw;
+	animation: progress linear;
+	animation-timeline: scroll();
+	transition: bottom 1s ease;
+	z-index: 2;
+}
+
+h2 {
+	font-family: "smileySans-oblique", sans-serif;
+	font-weight: 900;
+	font-style: normal;
+	font-size: 32px;
+}
+
+.top_glasses {
+	margin: 200px auto;
+	/* ← autoで中央配置 */
+	width: 70%;
+	text-align: center;
+}
+
+.top_glasses_img {
+	margin: auto;
+	display: block;
+}
+
+.text_curious {
+	text-align: center;
+	/* 追加 */
+	margin: 180px 0;
+}
+
+.text_curious>h2 {
+	font-size: 3vw;
+}
+
+/* 回転 + ゆらゆら変形 */
+@keyframes floatSpin {
+	0% {
+		transform: rotate(0deg) scale(1);
+		border-radius: 50%;
+	}
+
+	25% {
+		transform: rotate(90deg) scale(1.1, 0.9);
+		border-radius: 48% 52% 53% 47% / 46% 55% 45% 54%;
+	}
+
+	50% {
+		transform: rotate(180deg) scale(0.95, 1.05);
+		border-radius: 55% 45% 48% 52% / 50% 44% 56% 50%;
+	}
+
+	75% {
+		transform: rotate(270deg) scale(1.05, 0.95);
+		border-radius: 47% 53% 51% 49% / 53% 47% 52% 48%;
+	}
+
+	100% {
+		transform: rotate(360deg) scale(1);
+		border-radius: 50%;
+	}
+}
+
+/*TOPページ：　チャット形式のテキスト*/
+/*https://chot.design/css-design-technic/abc198324a6f/*/
+.chat_area {
+	margin: 0 auto;
+	padding: 10px;
+	width: 80%;
+}
+
+.chat {
+	display: flex;
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+
+.chat.left {
+	flex-direction: row;
+	/* img → message */
+}
+
+.chat.right {
+	flex-direction: row-reverse;
+	/* message → img */
+}
+
+.icon_profile {
+	width: 3.2rem;
+	height: 3.2rem;
+	object-fit: cover;
+	align-self: center;
+	flex-shrink: 0;
+	/* ← ついでに縮小もしないように */
+}
+
+.chat-message {
+	max-width: 70%;
+	border-radius: 2.1rem;
+	padding: 0.5em 0.8em;
+	position: relative;
+	color: white;
+	background: #368AED;
+	font-size: 2em;
+	align-self: flex-start;
+	/*chat-message は親の中で上詰めになる*/
+	text-align: left;
+}
+
+.chat.left .chat-message {
+	margin-left: 20px;
+}
+
+.chat.left .chat-message::before {
+	content: "";
+	position: absolute;
+	left: -20px;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 10px solid transparent;
+	border-right: 15px solid #368AED;
+}
+
+.chat.right .chat-message {
+	margin-right: 20px;
+}
+
+.chat.right .chat-message::after {
+	content: "";
+	position: absolute;
+	right: -20px;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 10px solid transparent;
+	border-left: 15px solid #368AED;
+}
+
+#content h3 {
+	font-size: 1.5vw;
+	font-weight: 800;
+	margin-bottom: 100px;
+}
+
+#content>section>div {
+	position: relative;
+}
+
+.glasses_text {
+	position: absolute;
+	right: 8vw;
+	bottom: 8vw;
+	transform: rotate(-7deg);
+	margin: 0 auto;
+	font-size: 3vw;
+	font-weight: 600;
+	text-align: left;
+}
+
+#content div p span {
+	background-color: #368AED;
+	color: white;
+}
+
+#content div p span:first-child {
+	position: relative;
+	padding: 0 8px 0 8px;
+}
+
+#content div p span:last-child {
+	position: absolute;
+	top: 5vw;
+	right: -15vw;
+	padding: 0 8px 0 8px;
+}
+
+/*======================
+参考サイト：
+======================*/
+.top-interview {
+	height: 40rem;
+	background: white;
+}
+
+.top-interview-text {
+	width: 100%;
+	text-align: left;
+}
+
+.top-interview-text p {
+	margin: 0;
+	align-self: center;
+	text-align: left;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #368AED;
+}
+
+.top-interview-text-midasi {
+	margin: 1rem 0 8rem 0;
+	align-self: center;
+	text-align: left;
+	font-family: "smileySans-oblique", sans-serif;
+	font-size: 4rem;
+	color: black;
+}
+
+.top-interview-body {
+	background: white;
+	margin: 0 auto;
+	padding: 1rem 1.2rem;
+	text-align: left;
+	align-content: center;
+	border-radius: 10% / 50%;
+}
+
+.top_content_student_job {
+	margin: 0 auto;
+	padding: 0.4rem 0;
+	font-size: 1rem;
+	font-family: "smileySans-oblique", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: black;
+}
+
+.border {
+	border: 0.095rem solid #368AED;
+	width: 1.2rem;
+}
+
+.top_saySomethingToJunior_gr {
+	padding: 1.5rem 0;
+}
+
+.top_saySomethingToJunior {
+	margin: 0 auto;
+	font-weight: bolder;
+	font-size: 1.4rem;
+	color: black;
+	text-align: left;
+	align-self: center;
+}
+
+.top_student_info_img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	/* 比率固定（例：横4 : 縦3） */
+	margin: 0 auto;
+	padding: 0;
+	/* padding削除して高さに影響させない */
+	background: #368AED;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	/* ← 下にくっつける */
+	overflow: hidden;
+	/* はみ出した画像を隠す */
+}
+
+.top_student_info_img img {
+	max-width: 90%;
+	max-height: 100%;
+	object-fit: cover;
+	/* トリミングしてピッタリ埋める */
+	object-position: bottom;
+	display: block;
+}
+
+.top_student_simple_info_name {
+	color: black;
+	font-size: 1rem;
+	font-family: "smileySans-oblique", sans-serif;
+	font-weight: 400;
+	padding: 1.2em 0 0 0;
+}
+
+.top_student_simple_info_etc {
+	color: black;
+	font-size: 0.8rem;
+	font-family: "smileySans-oblique", sans-serif;
+	font-weight: 400;
+}
+
+/*=============
+トップページ
+==============*/
+
+.logo img {
+	margin: 0 auto;
+	width: 186px;
+	height: auto;
+	padding: 5px 0 5px 1rem;
+	text-align: center;
+	flex-shrink: 0;
+}
+
+#gnav {
+	padding: 0;
+	display: flex;
+	list-style-type: none;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	/*margine調整*/
+}
+
+#gnav li {
+	padding: 10px;
+	display: block;
+}
+
+#gnav a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #002653;
+	font-size: 0.8vw;
+	text-align: center;
+}
+
+#gnav a:hover {
+	color: #368AED;
+}
+
+#keyVisual {
+	position: relative;
+	width: 100%;
+	background-color: #00489D;
+	overflow: hidden;
+}
+
+.keyVisual__bg {
+	position: relative;
+	width: 100%;
+	padding-top: 56.25%;
+	/* 16:9 アスペクト比 */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.keyVisual__img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+/* テキスト配置 */
+.keyVisual_text__wrap {
+	position: absolute;
+	left: clamp(20px, 5vw, 60px);
+	top: 3.5vh;
+	/* 解像度に応じて変動幅を抑える */
+	z-index: 2;
+}
+
+/* 見出し */
+#keyVisual h2 {
+	font-size: clamp(24px, 5.5vw, 90px);
+	line-height: 1.2;
+}
+
+#keyVisual h2 span {
+	position: relative;
+	display: inline-block;
+	padding: 0 10px;
+	transform: skewY(-5.4deg);
+	color: black;
+	background-color: white;
+}
+
+#keyVisual h2 span:last-child {
+	margin-top: 10px;
+	display: block;
+}
+
+/* スクロールエリア */
+.scroll-infinity {
+	position: absolute;
+	top: clamp(100px, 15vw, 180px);
+	/* 解像度に応じて一定距離を確保 */
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	z-index: 1;
+	transform: translateY(50%) skewY(-5.4deg);
+}
+
+/* アニメーションラッパー */
+.scroll-infinity__wrap {
+	display: flex;
+	width: max-content;
+	animation: scroll-loop 20s linear infinite;
+}
+
+/* スクロールアニメーション */
+@keyframes scroll-loop {
+	from {
+		transform: translateX(-50%);
+	}
+
+	to {
+		transform: translateX(0%);
+	}
+}
+
+/* リストとアイテム */
+.scroll-infinity__list {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 20px;
+	/* 一貫した余白 */
+}
+
+.scroll-infinity_item {
+	flex-shrink: 0;
+	width: clamp(100px, 12vw, 180px);
+	/* レスポンシブ対応 */
+}
+
+.scroll-infinity_item>img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+#content {
+	width: 90%;
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+}
+
+.interview_cards {
+	display: flex;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+	scroll-behavior: smooth;
+	gap: 5rem;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: auto;
+}
+
+.top_moveto_kou,
+.top_moveto_tet,
+.top_moveto_coscya,
+.top_moveto_lee {
+	list-style-type: none;
+}
+
+.top_moveto_kou>a,
+.top_moveto_tet>a,
+.top_moveto_coscya>a,
+.top_moveto_lee>a {
+	text-decoration: none;
+}
+
+.card {
+	min-width: clamp(25rem, 40vw, 30rem);
+	/* 最小16rem、最大22rem、推奨は25vw */
+	height: clamp(30rem, 50vh, 40rem);
+	/* 最小30rem、最大40rem、推奨は50vh */
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	box-sizing: border-box;
+}
+
+/*
+.card {
+	position: sticky;
+	top: 0;
+}*/
+
+/*=============
+学校のHPに飛ばす
+==============*/
+#more_content {
+	margin: 300px auto;
+	width: 90%;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#more_content h2 {
+	margin: 0 auto;
+	padding: 0 0 80px 0;
+	text-align: center;
+	color: #002653;
+	font-size: 3rem;
+}
+
+#more_content dl {
+	background-color: white;
+	border-radius: 10%;
+}
+
+/*TOPページのindex.html は親が100%幅の中に対して中央寄せになっていない、
+または幅が異なったため、他のページと比べて感覚が違う。
+→justify-contentをcenterにして、gapを設定することで解決*/
+.movetohp {
+	/*問題：TOPページ以外のところでは作動しない*/
+	display: flex;
+	justify-content: center;
+	gap: 3vw;
+	text-align: left;
+	color: #002653;
+}
+
+.movetohp dl {
+	display: flex;
+	flex-direction: column;
+	/* 縦方向に並べる */
+	justify-content: space-between;
+	/* 上下に要素を分ける */
+	width: 370px;
+	height: 380px;
+	padding: 5rem 3rem;
+}
+
+.movetohp dt {
+	font-family: "Zen Kaku Gothic New", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.movetohp .movetohp-title {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.movetohp .movetohp-title-eng {
+	font-size: 1rem;
+}
+
+.movetohp dd {
+	width: 100%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #002653;
+	color: white;
+	font-family: "Zen Kaku Gothic New", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 0.8rem;
+	border-radius: 30px;
+	transition-duration: .2s;
+	cursor: pointer;
+	/* dd全体が押せそうに見える */
+}
+
+.movetohp dd>div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.moreInfo {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.movetohp dd a {
+	margin: 0 auto;
+	padding: 0;
+	text-decoration: none;
+	color: white;
+	width: 100%;
+	height: 100%;
+}
+
+.icon_move_site {
+	background-image: url(../imgs/icon_moveto_anothersite_white.svg);
+	width: 20px;
+	height: 20px;
+	margin: 0;
+}
+
+.btn_move_site {
+	margin: auto 0;
+	/* ← これで上下中央に配置 */
+	width: 30px;
+	height: 30px;
+	background-image: url(../imgs/btn_arrow_white.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	text-align: right;
+}
+
+#wrap {
+	margin: 0 auto;
+	width: 90%;
+}
+
+#page_title h2 {
+
+	margin: 80px 0 40px 0;
+	font-size: 28px;
+}
+
+#page_title h3 {
+	font-size: 16px;
+}
+
+#page_title {
+	text-align: center;
+}
+
+.category {
+	border-left: 0.4rem solid;
+	color: #00489D;
+	margin: 100px 0 0 0;
+	padding: 0 0 0 20px;
+}
+
+.category dt {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.category dd {
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.student_idcards {
+	margin: 0 0 80px 0;
+	display: flex;
+	gap: 60px;
+	justify-content: center;
+	align-items: center;
+}
+
+.student_idcard {
+	background-color: white;
+	margin: 40px 0 0 0;
+	width: 600px;
+	text-decoration: none;
+	border-radius: 10px 10px 10px 10px;
+	transition-duration: .2s;
+}
+
+.student_idcard:hover {
+	transform: scale(0.95, 0.95);
+}
+
+.student_idcard dl {
+	background-color: #F9F9F9;
+	box-shadow: 2em 2em 4em rgba(0, 0, 0, 0.084),
+		-2em -2em 4em rgb(255, 255, 255);
+	border-radius: 10px 10px 10px 10px;
+}
+
+.student_idcard dt {
+	text-align: center;
+	padding: 18px 0 18px 0;
+	background-color: #00489D;
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+	border-radius: 10px 10px 0 0;
+}
+
+.student_idcard dd {
+	color: black;
+}
+
+.idcard_content {
+	display: flex;
+	padding: 24px;
+}
+
+.idcard_explain {
+	font-size: 10px;
+	margin: 0 0 0 20px;
+}
+
+.student_word {
+	font-size: 16px;
+	margin: 20px 0 0 20px;
+}
+
+.student_maininfo {
+	font-size: 14px;
+	margin: 20px 0 0 20px;
+}
+
+.student_img {
+	width: 180px;
+}
+
+.logo_school {
+	margin: 0 auto;
+	text-align: center;
+	padding: 10px 0 25px 0;
+}
+
+body {
+	background-color: #F9F9F9;
+	font-size: 80%;
+}
+
+/*=============
+コンテンツ
+==============*/
+.content_student_info_wrap {
+	position: relative;
+	height: auto;
+	min-height: calc(100vh - 100px);
+	/* 子要素の絶対位置指定に必要 */
+	background-color: #368AED;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	/* ←これを使えば bottom 固定不要 */
+}
+
+.bottom {
+	position: absolute;
+}
+
+.content_student_info {
+	display: flex;
+	width: 95%;
+	height: 100%;
+	margin: 0 auto;
+	align-items: flex-end;
+}
+
+.student_info_img {
+	position: relative;
+	width: 60%;
+	max-width: 100%;
+	z-index: 2;
+	animation: fadeIn 0.7s linear forwards;
+}
+
+.student_info img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.student_explain {
+	float: left;
+	margin: 0 auto;
+	padding: 60px 0 0 60px;
+	/* ←ここを変更 */
+	width: 60%;
+	height: 100%;
+	z-index: 1;
+}
+
+/*ものすごく長い文字が画面幅外に描画されているため、
+アニメーション中にページ幅が「拡張された」と
+ブラウザが解釈してしまうのを防ぐ*/
+
+.student_explain h2 {
+	display: inline-block;
+	padding: 0 0 100px 0;
+	font-size: 5vw;
+	white-space: nowrap;
+	/* テキストの折り返しを防ぐ */
+	color: white;
+}
+
+.saySomethingToJunior {
+	font-size: 2vw;
+	color: black;
+}
+
+.student_explain .student_simpleProfile {
+	padding: 1vw 0 0 0;
+}
+
+.saySomethingToJunior_all {
+	padding: 4vh 0 0 0;
+}
+
+.saySomethingToJunior,
+.student_simpleProfile>p {
+	position: relative;
+	display: inline-block;
+	padding: 6px 10px;
+	margin: 0 0 6px 0;
+	font-weight: bolder;
+	color: transparent;
+	/* 初期は透明に */
+	overflow: hidden;
+	/* アニメーションがはみ出ないように */
+	z-index: 1;
+	position: relative;
+	background: none;
+	animation: textColorFlow 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+	animation-delay: 0.4s;
+	/* bgFlowと同時スタート */
+}
+
+/* アニメーション背景 */
+.saySomethingToJunior::before,
+.student_simpleProfile>p::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: white;
+	transform-origin: left center;
+	transform: scaleX(0) translateX(-5%);
+	opacity: 0;
+	z-index: -1;
+	animation: bgFlow 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 文字色のアニメーション */
+@keyframes textColorFlow {
+	0% {
+		color: transparent;
+	}
+
+	100% {
+		color: black;
+	}
+}
+
+@keyframes bgFlow {
+	0% {
+		opacity: 0;
+		transform: scaleX(0) translateX(-5%);
+	}
+
+	30% {
+		transform: scaleX(1) translateX(0);
+	}
+
+	100% {
+		transform: scaleX(1) translateX(0);
+	}
+
+	30%,
+	100% {
+		opacity: 1;
+	}
+}
+
+.student_explain .student_simpleProfile>p {
+	font-size: 1.2vw;
+}
+
+.student_explain .student_simpleProfile>p:first-child {
+	margin: 0 0 6px 0;
+}
+
+.student_explain .student_simpleProfile>p:last-child {
+	margin: 0 0 60px 0;
+}
+
+.scroll_interview_sign_wrap {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	height: auto;
+	width: 100%;
+	z-index: 2;
+}
+
+#scroll_interview_signBG {
+	width: 100%;
+	height: 144px;
+	background-image: url(../imgs/illust_scrollBG.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#scroll_interview_sign {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#scroll_interview_txt {
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+	padding: 0 0 30px 0;
+}
+
+#scroll_interview_sign img {
+	animation: swipe 1s ease-in-out infinite alternate;
+}
+
+@keyframes swipe {
+	0% {
+		transform: translateX(0px);
+		transform: translateY(-25px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(20px);
+	}
+
+	40%,
+	100% {
+		opacity: 1;
+	}
+}
+
+#interview_align {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	z-index: 1;
+	overflow-y: visible;
+	scroll-snap-type: y mandatory;
+}
+
+#glasses_wrapper {
+	position: relative;
+	height: auto;
+	/* スクロール可能な高さに変更、必要に応じてもっと増やす */
+	margin: 50px 0 240px 0;
+	padding: 0;
+}
+
+#glasses_wrapper dl {
+	scroll-snap-align: start;
+}
+
+#content_glasses {
+	position: sticky;
+	top: 110px;
+	/* ヘッダーなどの高さに合わせて調整 */
+	width: 80%;
+	margin: 0 auto;
+	padding: 50px;
+	display: block;
+	z-index: 2;
+}
+
+/* 拡大アニメーション */
+.interview_items {
+	padding: 0 0 150px 0;
+	color: #002653;
+}
+
+.interview_items :nth-child(1) {
+	animation-range: entry 20% cover 40%;
+}
+
+.autoBlur {
+	animation: autoBlueAnimation linear both;
+	animation-timeline: view(50% auto);
+}
+
+@keyframes autoBlueAnimation {
+	0% {
+		filter: blur(20px);
+	}
+
+	10% {
+		filter: blur(10px);
+	}
+
+	40% {
+		filter: blur(5px);
+	}
+
+	50% {
+		filter: blur(0px);
+	}
+
+	85% {
+		filter: blur(0px);
+	}
+
+	95% {
+		filter: blur(5px);
+	}
+
+	100% {
+		filter: blur(10px);
+	}
+}
+
+.autoBlurQ7 {
+	animation: autoBlueAnimationQ7 linear both;
+	animation-timeline: view(50% auto);
+}
+
+@keyframes autoBlueAnimationQ7 {
+	0% {
+		filter: blur(20px);
+	}
+
+	10% {
+		filter: blur(10px);
+	}
+
+	30% {
+		filter: blur(0px);
+	}
+
+	90% {
+		filter: blur(0px);
+	}
+
+	95% {
+		filter: blur(5px);
+	}
+
+	100% {
+		filter: blur(10px);
+	}
+}
+
+.lastAutoBlur {
+	animation: lastAutoBlueAnimation linear both;
+	animation-timeline: view(50% auto);
+}
+
+@keyframes lastAutoBlueAnimation {
+	0% {
+		filter: blur(20px);
+	}
+
+	10% {
+		filter: blur(15px);
+	}
+
+	30% {
+		filter: blur(0px);
+	}
+}
+
+.interview_items:first-child {
+	margin-top: 160px;
+}
+
+.interview_items:last-child {
+	padding-bottom: 200px;
+}
+
+.interview_question {
+	font-size: 31px;
+	font-weight: bold;
+}
+
+.interview_answer {
+	padding: 50px 0;
+	font-size: 19px;
+	font-weight: 400;
+}
+
+.Q2 dl dt,
+.Q6 dl dt,
+.Q10 dl dt {
+	position: relative;
+}
+
+.Q2 dl dt.gradation::before,
+.Q6 dl dt.gradation::before,
+.Q10 dl dt.gradation::before {
+	content: "";
+	position: absolute;
+	right: -500px;
+	bottom: -300px;
+	background: url(../imgs/illust_gradation.png) 100% 100% no-repeat;
+	width: 700px;
+	height: 700px;
+}
+
+#spofes_img {
+	margin: 0 auto;
+	text-align: center;
+}
+
+/*=============
+footer
+==============*/
+footer {
+	position: relative;
+	background-color: #00489D;
+	height: 500px;
+}
+
+footer ul {
+	padding-top: 40px;
+}
+
+footer li {
+	list-style-image: white;
+	margin: 0 auto;
+	width: 88%;
+	margin-top: 8px;
+	font-size: 12px;
+}
+
+footer li:first-child {
+	width: 90%;
+	list-style-type: none;
+	font-size: 20px;
+}
+
+footer li,
+footer li a,
+footer p {
+	color: white;
+}
+
+footer li a {
+	/*transform は inline 要素（＝デフォルトの <a>）には直接効かないから
+	inline-block　や　blockを指定する。*/
+	display: inline-block;
+	text-decoration: none;
+	transition: transform 0.2s ease;
+}
+
+footer li a:hover {
+	transform: translateX(5px);
+}
+
+.footer_illust_animation {
+	position: absolute;
+	top: 0;
+	right: 5.1vw;
+}
+
+.footer_illust_animation_person {
+	position: relative;
+	width: 20vw;
+}
+
+.footer_illust_glasses {
+	position: absolute;
+	top: 5.7vw;
+	left: 7.68vw;
+	margin: 0 auto;
+	align-items: center;
+	width: 24%;
+	opacity: 0;
+	animation-duration: 16s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+/* 各画像が順番に表示されるアニメーションを設定 */
+.glasses1 {
+	animation-name: glassesFade1;
+}
+
+.glasses2 {
+	animation-name: glassesFade2;
+}
+
+.glasses3 {
+	animation-name: glassesFade3;
+}
+
+.glasses4 {
+	animation-name: glassesFade4;
+}
+
+/* footerアニメーション（それぞれずらして表示） */
+@keyframes glassesFade1 {
+
+	0%,
+	19% {
+		opacity: 1;
+	}
+
+	20%,
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes glassesFade2 {
+
+	20%,
+	39% {
+		opacity: 1;
+	}
+
+	0%,
+	19%,
+	40%,
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes glassesFade3 {
+
+	40%,
+	59% {
+		opacity: 1;
+	}
+
+	0%,
+	39%,
+	60%,
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes glassesFade4 {
+
+	60%,
+	79% {
+		opacity: 1;
+	}
+
+	0%,
+	59%,
+	80%,
+	100% {
+		opacity: 0;
+	}
+}
+
+footer p {
+	position: absolute;
+	right: 0;
+	bottom: 3vh;
+	font-size: 12px;
+	margin: 0 auto;
+	padding: 20px 5vw;
+	text-align: right;
+}
+
+/*=========================
+PC版
+=========================*/
+@media screen and (max-width: 1440px) {
+
+	/*****学生証*****/
+	.student_idcards {
+		margin: 0 0 80px 0;
+		display: flex;
+		flex-direction: column;
+		gap: 60px;
+		justify-content: center;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.top_student_info_img {
+		width: 100%;
+		height: 300px;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		/* ← 下にくっつける */
+		padding: 0;
+		background: #368AED;
+		overflow: hidden;
+	}
+
+	.top_student_info_img img {
+		max-width: 90%;
+		max-height: 100%;
+		object-fit: contain;
+		object-position: bottom;
+		/* ← 下寄せ */
+		display: block;
+	}
+}
+
+/*=========================
+tablet版
+=========================*/
+@media screen and (max-width: 768px) {
+	header {
+		height: 80px;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.logo img {
+		width: 150px;
+	}
+
+	.top-button {
+		width: 10vw;
+		height: 10vw;
+	}
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		padding: 10px 5%;
+		position: relative;
+	}
+
+	#btn-menu {
+		display: block;
+		position: absolute;
+		margin: 0 auto;
+		top: 1rem;
+		right: 10vw;
+		z-index: 1000;
+	}
+
+	#gnav {
+		display: none;
+		position: absolute;
+		top: 100px;
+		right: 0;
+		width: 40%;
+		padding: 28px 28px 30px 30px;
+		max-width: calc((100vw-1rem)/2)rem;
+		height: auto;
+		background-color: #368AED;
+		border-radius: 0 0 0 2rem;
+		z-index: 10;
+	}
+
+	#gnav.active {
+		top: 4.4rem;
+		display: block;
+		/* メニューボタンをクリックすると表示 */
+	}
+
+	#gnav li {
+		margin: 0;
+		text-align: left;
+	}
+
+	#gnav a {
+		text-decoration: none;
+		font-weight: bold;
+		color: white;
+		font-size: 1rem;
+		text-align: center;
+	}
+
+	.keyVisual_text__wrap {
+		left: clamp(20px, 5vw, 60px);
+		top: 2vh;
+		/* 解像度に応じて変動幅を抑える */
+		z-index: 2;
+	}
+
+	.keyVisual__bg {
+		background-size: cover;
+		/* モバイルでは contain にする */
+		/* または背景位置を上寄せ or 中央寄せで調整 */
+		background-position: top center;
+		/* 要素の高さを少し大きめにとる */
+		padding-top: 56.25%;
+		/* 56.25% より縦を余裕持たせる例 */
+	}
+
+	.scroll-infinity {
+		top: clamp(100px, 14vw, 180px);
+	}
+
+	.scroll-infinity_item {
+		/* 親要素から見切れるのを防ぐため縮小または max-height 制限 */
+		max-height: 90vw;
+		height: auto;
+		object-fit: contain;
+	}
+
+	.top_glasses {
+		width: 90%;
+		margin: 150px auto;
+	}
+
+	.chat-message {
+		font-size: 1.6em;
+	}
+
+	.chat_area {
+		width: 90%;
+	}
+
+	.top-interview-text-midasi {
+		font-size: 3rem;
+	}
+
+	.top_student_info_img {
+		width: 100%;
+		height: auto;
+		padding: 0;
+		background: #368AED;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		/* ← 下にくっつける */
+	}
+
+	.top_student_info_img img {
+		width: auto;
+		max-width: 100%;
+		height: auto;
+		max-height: 300px;
+		object-fit: contain;
+		object-position: bottom;
+		/* ← 下寄せ */
+		display: block;
+	}
+
+	.top_student_simple_info_name {
+		font-size: 0.9rem;
+	}
+
+	.top_student_simple_info_etc {
+		font-size: 0.7rem;
+	}
+
+	.card {
+		min-width: 80%;
+		height: auto;
+	}
+
+	.interview_cards {
+		gap: 3rem;
+		height: auto;
+	}
+
+	.student_idcard {
+		width: 90%;
+	}
+
+	.student_img {
+		width: 120px;
+	}
+
+	.idcard_explain,
+	.student_maininfo,
+	.student_word {
+		font-size: 12px;
+		margin: 10px 0 0 10px;
+	}
+
+	.student_explain h2 {
+		font-size: 6vw;
+	}
+
+	.saySomethingToJunior {
+		font-size: 2.4vw;
+	}
+
+	.movetohp {
+		/*問題：TOPページ以外のところでは作動しない*/
+		display: grid;
+		justify-content: center;
+		gap: 3vw;
+		text-align: left;
+		color: #002653;
+	}
+
+	#more_content {
+		margin: 300px auto;
+		width: 90%;
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	#more_content h2 {
+		margin: 0 auto;
+		padding: 0 0 80px 0;
+		text-align: center;
+		color: #002653;
+		font-size: 5vw;
+	}
+
+	#more_content dl {
+		background-color: white;
+		border-radius: 50px;
+	}
+
+	/*TOPページのindex.html は親が100%幅の中に対して中央寄せになっていない、
+または幅が異なったため、他のページと比べて感覚が違う。
+→justify-contentをcenterにして、gapを設定することで解決*/
+	.movetohp {
+		/*問題：TOPページ以外のところでは作動しない*/
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		gap: 50px;
+		text-align: left;
+		color: #002653;
+	}
+
+	.movetohp dl {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 90%;
+		height: auto;
+		padding: 40px 60px;
+		margin: 0 auto;
+	}
+
+	.movetohp dt {
+		font-family: "Zen Kaku Gothic New", sans-serif;
+		font-weight: 500;
+		font-style: normal;
+		flex: 7;
+		align-self: center;
+	}
+
+	.movetohp .movetohp-title {
+		font-size: 4vw;
+		font-weight: bold;
+		padding: 0;
+		margin: 0 auto;
+	}
+
+	.movetohp .movetohp-title-eng {
+		font-size: 2.5vw;
+	}
+
+	.movetohp dd {
+		padding: 40px 0;
+		width: 100%;
+		flex: 3;
+		font-family: "Zen Kaku Gothic New", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 18px;
+		background: none;
+		/* ← 固定位置 */
+		align-items: center;
+		cursor: pointer;
+		/* dd全体が押せそうに見える */
+	}
+
+	.movetohp dd>div {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.moreInfo {
+		display: flex;
+		align-items: center;
+		justify-content: right;
+		height: 100%;
+		width: 100%;
+	}
+
+	.movetohp dd a {
+		display: none;
+		margin: 0 auto;
+		text-decoration: none;
+		color: #002653;
+	}
+
+	.icon_move_site {
+		display: block;
+		justify-content: right;
+		background-color: #002653;
+		border-radius: 50%;
+		/*背景を円にする*/
+		background-size: 60%;
+		background-position: center;
+		background-image: url(../imgs/icon_moveto_anothersite_navy.svg);
+		width: 7vw;
+		height: 7vw;
+		margin-left: auto;
+		cursor: pointer;
+	}
+
+	.icon_move_site:hover {
+		background-color: #368AED;
+		transition-duration: .2s;
+	}
+
+	.btn_move_site {
+		display: none;
+		background-image: url(../imgs/btn_arrow_navy.svg);
+		margin: 0 auto;
+		text-align: right;
+	}
+
+	/*学生証*/
+	.student_idcard {
+		width: 400px;
+		text-decoration: none;
+		border-radius: 10px 10px 10px 10px;
+		transition-duration: .2s;
+	}
+
+	.idcard_content {
+		display: flex;
+		flex-direction: column;
+		padding: 24px 0;
+		margin: 0 auto;
+		align-items: center;
+	}
+
+	.idcard_explain {
+		font-size: 10px;
+		margin: 0 0 0 20px;
+	}
+
+	.student_word {
+		font-size: 16px;
+		margin: 20px 0 0 20px;
+	}
+
+	.student_maininfo {
+		font-size: 14px;
+		margin: 20px 0 0 20px;
+	}
+
+	.student_img {
+		margin: 0 auto;
+		width: 180px;
+		align-self: center;
+	}
+}
+
+/*=========================
+mobile版
+=========================*/
+@media screen and (max-width: 767px) {
+	.keyVisual__bg {
+		width: 100%;
+		background-size: contain;
+		/* 切れを防ぐ */
+		background-position: top center;
+		/* 上寄せにすることで重要な部分が見えるように */
+		/* もしpadding-topを使ってアスペクト比を出しているなら、高さを少し増やす */
+		padding-top: 70%;
+		/* 例。56.25% より縦を余裕を持たせる比率 */
+	}
+}
+
+@media screen and (max-width: 480px) {
+	header {
+		height: 70px;
+		padding: 5px 5%;
+	}
+
+	.logo img {
+		width: 120px;
+	}
+
+	.top-button {
+		width: 18vw;
+		height: 18vw;
+	}
+
+	.chat-message {
+		font-size: 1.2em;
+	}
+
+	.top-interview-text-midasi {
+		font-size: 2rem;
+	}
+
+	.top_student_info_img {
+		aspect-ratio: 1 / 1;
+		/* スマホは正方形に */
+	}
+
+	.top_student_simple_info_name {
+		font-size: 0.85rem;
+	}
+
+	.top_student_simple_info_etc {
+		font-size: 0.65rem;
+	}
+
+	.interview_cards {
+		gap: 2rem;
+	}
+
+	/*学生証*/
+	.student_idcard {
+		width: 100%;
+		text-decoration: none;
+		border-radius: 10px 10px 10px 10px;
+		transition-duration: .2s;
+	}
+
+	.student_explain h2 {
+		font-size: 7vw;
+	}
+
+	.saySomethingToJunior {
+		font-size: 3vw;
+	}
+
+	.student_simpleProfile>p {
+		font-size: 1rem;
+	}
+
+	#scroll_interview_txt {
+		font-size: 12px;
+	}
+
+	.interview_question {
+		font-size: 20px;
+	}
+
+	.interview_answer {
+		font-size: 14px;
+		padding: 20px 0;
+	}
+}
