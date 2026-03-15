@@ -11,14 +11,17 @@
         });
     }
 
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: "auto",
-      spaceBetween: 30,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+    const swiperCheck = document.querySelector('.mySwiper');
+    if (swiperCheck) {
+        const swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 30,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    }
 
     // ----- 2. メガネ一覧ページのカードを押した時、詳細ページへ遷移 -----
     const student_cards = document.querySelectorAll('.student-card');
@@ -85,22 +88,17 @@
     document.addEventListener('DOMContentLoaded', () => {
         const interviewItems = document.querySelectorAll('.interview-content__inner > div');
 
-        // 옵저버 설정: 요소가 화면의 50% 이상 보일 때 감지
         const observerOptions = {
-            root: null, // 브라우저 뷰포트 기준
-            threshold: 0.5
+            root: null,
+            threshold: 0.2,
+            rootMargine: "0px, 0px, -100px, 0px"
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // 현재 정중앙에 온 요소에 'active' 클래스 추가
                     entry.target.classList.add('is-visible');
-
-                    // (선택사항) 필요하다면 여기서 현재 질문 번호를 로그에 남기거나 처리
-                    console.log(`${entry.target.querySelector('.question').id} 활성화`);
                 } else {
-                    // 화면에서 벗어나면 클래스 제거
                     entry.target.classList.remove('is-visible');
                 }
             });

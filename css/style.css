@@ -853,12 +853,7 @@ main {
 
 /********** インタビュー **********/
 .interview-content {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    padding: 100px 0;
 }
 
 .interview-content::-webkit-scrollbar {
@@ -867,15 +862,16 @@ main {
 
 .interview-content__inner>div {
     width: 100%;
-    height: 100vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
+    
+    opacity: 1; 
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-bottom: 10vh;
 }
 
 .interview-content__inner>div.is-visible {
