@@ -4,264 +4,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="css/base.css" media="screen">
+    <title>日本電子専門学校Webデザイン科</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="apple-touch-icon" type="image/png" href="imgs/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="imgs/icon-192x192.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <script src="js/script.js" defer></script>
-    <title>日本電子専門学校Webデザイン科のスペシャルサイト</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <h1 class="logo"><a href="index.html"><img src="imgs/logo_site.svg" alt="日本電子専門学校Webデザイン科のロゴ"></a>
-        </h1>
-        <nav>
-            <ul id="gnav">
-                <li><a href="interview_all/index.html">全てのインタビュー</a></li>
-                <li><a href="interview_1stGrade/index.html">1年生のインタビュー</a></li>
-                <li><a href="interview_2ndGrade/index.html">2年生のインタビュー</a></li>
-                <li><a href="interview_nation/index.html">国籍に分けたインタビュー</a></li>
-                <li><a href="interview_job/index.html">希望職種に分けたインタビュー</a></li>
-            </ul>
-        </nav>
-        <!--ハンバーガーメニュー-->
-        <button type="button" id="btn-menu" class="">
-            <div></div>
-            <div></div>
-            <div></div>
-        </button>
-    </header>
-    <main>
-        <a class="move-page-top" href="#">
-            <div class="top-button">
-                <span class="yajirushi"></span>
-            </div>
-        </a>
-        <!--キービジュアル-->
-        <section id="keyVisual">
-            <div class="keyVisual__bg"></div>
-            <div class="keyVisual_text__wrap">
-                <h2><span>先輩のメガネを</span><br><span>貸してください！</span></h2>
-            </div>
-            <div class="scroll-infinity">
-                <div class="scroll-infinity__wrap">
-                    <ul class="scroll-infinity__list">
-                        <li class="scroll-infinity_item"><img src="imgs/illust_coscya.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_kou.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_lee.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_tet.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_coscya.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_kou.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_lee.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_tet.png" alt="..."></li>
 
-                        <!-- 2セット目（ループのため） -->
-                        <li class="scroll-infinity_item"><img src="imgs/illust_coscya.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_kou.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_lee.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_tet.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_coscya.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_kou.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_lee.png" alt="..."></li>
-                        <li class="scroll-infinity_item"><img src="imgs/illust_tet.png" alt="..."></li>
+    <div class="kv">
+        <!-- ********** header ********** -->
+        <header class="gn-header">
+            <div class="gn-header__inner">
+                <div class="gn-header__logo">
+                    <a href="index.html">
+                        <img src="imgs/icon.svg" alt="日本電子専門学校Webデザイン科のロゴ">
+                    </a>
+                </div>
+
+                <nav class="gn-navigation">
+                    <ul class="navigation__list">
+                        <li class="navigation__item"><a href="index.html">先輩のメガネとは</a></li>
+                        <li class="navigation__item"><a href="../glassesListPage/index.html">メガネ一覧ページ</a></li>
                     </ul>
+                </nav>
+
+                <div class="gn-header__action">
+                    <button class="lang">EN</button>
+                    <a class="contact" href="https://www.jec.ac.jp/inquiry/">
+                        <img src="imgs/contact.png" alt="お問い合わせボタン">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- ********** end header ********** -->
+
+        <!-- ********** KV ********** -->
+        <div class="kv__inner">
+
+            <div class="kv-title">
+                <p class="kv-title__sub">
+                    先輩の話の中で見つかる自分の本音
+                </p>
+                <h1 class="kv-title__main">
+                    先輩のメガネを貸してください！
+                </h1>
+            </div>
+
+            <button class="kv-cta">
+                <img src="imgs/glasses.png" alt="白い眼鏡のイラスト">
+                <span>CLICK!</span>
+            </button>
+
+        </div>
+
+    </div>
+    <main id="main">
+        <!--********** start intro **********-->
+        <section class="" id="intro">
+            <div class="intro__inner">
+                <div class="intro-lead">
+                    <div class="intro-lead__catch">
+                        <img class="corner tl" src="imgs/frame-corner-tl.png" alt="">
+                        <p>先輩のメガネを通して学校生活をのぞいてみよう。</p>
+                        <img class="corner br" src="imgs/frame-corner-br.png" alt="">
+                    </div>
+                    <h2 class="intro-lead__title">先輩の学校生活を<br>のぞいてみませんか？</h2>
+                </div>
+                <div class="intro-content">
+                    <div class="intro-content__inner">
+                        <p>日本で働けたらいいな。 Webの仕事ができたらいいな。<br>
+                            そう思って、学校のサイトを見たり、オープンキャンパスに参加したり、<br>
+                            先輩の作品を見たりしたかもしれません。</p>
+                        <p>それでどんな授業をするか分かる。就職実績も見た。<br>
+                            どんなスキルが必要かも、なんとなく理解した。<br>
+                            でも、そのレベルにたどり着くまでの道のりが、自分の姿として想像できない。</p>
+                        <p>途中で苦しくならず、ついていけるのか。<br>
+                            バイトと学校を両立できるのかなど。<br>
+                            パンフレットや説明だけでは、本当の学校生活はどうなのか分からない。</p>
+                        <p>ここでもし、先を歩いた先輩も同じ場所で迷っていた頃を<br>
+                            見ることができたらどうでしょう。<br>
+                            できなかった日のこと。逃げたくなった瞬間。それでも続けられた理由。</p>
+                        <p>留学生の先輩たちも同じことで悩んで、また悩みました。<br>
+                            だからこそ、このメガネはきっと皆さんの力になるでしょう。<br>
+                            先輩たちのメガネがあれば、不安なままでも大丈夫です。</p>
+                        <div class="intro-cta">
+                            <a href="../glassesListPage/index.html" class="button-wrapper button-location__right">
+                                <span class="button_text">メガネ一覧ページへ行く</span>
+                                <span class="button__arrow">
+                                    <img src="imgs/right-arrow.png" alt="青色の矢印">
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <section id="content">
-            <section>
-                <div class="text_curious">
-                    <h2>日本電子専門学校のWebデザイン科の<br>留学生の先輩たちは<br>本当はどう過ごしているかな？</h2>
-                </div>
-                <div class="chat_area">
+        <!--********** end intro **********-->
+        <!--********** start what-we-focused **********-->
+        <section class="" id="what-we-focused">
+            <div class="what-we-focused__inner">
+                <h2 class="p-top-sec__heading">
+                    <span class="en">WHAT WE FOCUSED</span>
+                    <span class="ja-explain">あなたが抱いているかもしれない<br>
+                        不安を3つに分け、インタビューを進みました。</span>
+                </h2>
+                <div class="p-top-sec__cnt">
                     <ul>
-                        <li class="chat left">
-                            <img class="icon_profile" src="imgs/icon_profile_64px.png" alt="メッセンジャープロフィールアイコン">
-                            <p class="chat-message">先輩に話聞いてみない？</p>
+                        <li>
+                            <p class="title">就職 ＆ 職種</p>
+                            <ul>
+                                <li>日本での就職は本当に簡単なの？</li>
+                                <li>まだ職種が決まっていなくても大丈夫？</li>
+                                <li>先輩はどんな職種を選んでいるの？</li>
+                            </ul>
                         </li>
-                        <li class="chat right">
-                            <img class="icon_profile" src="imgs/icon_profile_64px.png" alt="メッセンジャープロフィールアイコン">
-                            <p class="chat-message">学校の公式サイトを見て分からなくても大丈夫。</p>
+                        <li>
+                            <p class="title">日本語</p>
+                            <ul>
+                                <li>JLPT資格があれば、学校生活は問題ない？</li>
+                                <li>クラスに留学生と日本人の割合はどう？</li>
+                                <li>授業や課題は留学生も無理なく、ついていけるの？</li>
+                            </ul>
                         </li>
-                        <li class="chat left">
-                            <img class="icon_profile" src="imgs/icon_profile_64px.png" alt="メッセンジャープロフィールアイコン">
-                            <p class="chat-message">オープンキャンパスに参加したのに<br>分からないといっても大丈夫。</p>
-                        </li>
-                        <li class="chat right">
-                            <img class="icon_profile" src="imgs/icon_profile_64px.png" alt="メッセンジャープロフィールアイコン">
-                            <p class="chat-message">学校生活が想像できなかったとしても大丈夫。</p>
+                        <li>
+                            <p class="title">学校生活</p>
+                            <ul>
+                                <li>授業以外に、学生たちはどんなことをしているの？</li>
+                                <li>Webに関する勉強をしておいた方がいいの？</li>
+                                <li>勉強しながらバイトもできるの？</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
-                <div class="top_glasses">
-                    <img class="top_glasses_img" src="imgs/top_page.png" alt="日本電子専門学校のWebデザイン科学生たちの姿が映っているメガネのイラスト"
-                        width="1324" height="580">
-                    <p class="glasses_text"><span>先輩のメガネを通して見れば</span><br><span>学科について理解で理解できるかも ?!</span></p>
-                </div>
-                <div class="top-interview-text">
-                    <p>INTERVIEW</p>
-                    <h2 class="top-interview-text-midasi">外国人の在校生のインタビュー</h2>
-                </div>
-                <ul class="interview_cards">
-                    <li class="top_moveto_kou card">
-                        <a href="interviewpage_kou/index.html">
-                            <div class="top-interview">
-                                <div class="top-interview-body">
-                                    <div class="top_student_info_img">
-                                        <img src="imgs/illust_enlarge_kou.png" alt="拡大したKさんの証明写真イラスト" width="724"
-                                            height="640">
-                                    </div>
-                                    <div class="top_saySomethingToJunior_gr">
-                                        <span
-                                            class="top_saySomethingToJunior">企画もデザインもコーディングもやってみる中で、自分に合うものが見えてくるはずです。</span>
-                                    </div>
-                                    <div class="border"></div>
-                                    <div class="top_student_simple_info">
-                                        <p class="top_student_simple_info_name">Kさん</p>
-                                        <p class="top_content_student_job">Webフロントエンドエンジニア希望</p>
-                                        <p class="top_student_simple_info_etc">1年/　台湾</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="top_moveto_tet card">
-                        <a href="interviewpage_tet/index.html">
-                            <div class="top-interview">
-                                <div class="top-interview-body">
-                                    <div class="top_student_info_img positionGr">
-                                        <img class="top_student_info_img" src="imgs/illust_enlarge_tet.png"
-                                            alt="拡大したTさんの証明写真イラスト" width="724" height="640">
-                                    </div>
-                                    <div class="top_saySomethingToJunior_gr">
-                                        <span class="top_saySomethingToJunior">失敗を恐れずに、まずはやってみてください。それだけで十分です。</span>
-                                    </div>
-                                    <div class="border"></div>
-                                    <div class="top_student_simple_info">
-                                        <p class="top_student_simple_info_name">Tさん</p>
-                                        <p class="top_content_student_job">Webフロントエンドエンジニア</p>
-                                        <p class="top_student_simple_info_etc">1年/　ミャンマー</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="top_moveto_coscya card">
-                        <a href="interviewpage_coscya/index.html">
-                            <div class="top-interview">
-                                <div class="top-interview-body">
-                                    <div class="top_student_info_img positionGr">
-                                        <img class="top_student_info_img" src="imgs/illust_enlarge_coscya.png"
-                                            alt="拡大したCさんの証明写真イラスト" width="724" height="640">
-                                    </div>
-                                    <div class="top_saySomethingToJunior_gr">
-                                        <span
-                                            class="top_saySomethingToJunior">日本語を身につけることで自信が生まれ、コミュニケーションの幅が広がり、さまざまなチャンスを掴むことができます。</span>
-                                    </div>
-                                    <div class="border"></div>
-                                    <div class="top_student_simple_info">
-                                        <p class="top_student_simple_info_name">Cさん</p>
-                                        <p class="top_content_student_job">テクニカルディレクター</p>
-                                        <p class="top_student_simple_info_etc">2年/　ロシア</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="top_moveto_lee card">
-                        <a href="interviewpage_lee/index.html">
-                            <div class="top-interview">
-                                <div class="top-interview-body">
-                                    <div class="top_student_info_img positionGr">
-                                        <img class="top_student_info_img" src="imgs/illust_enlarge_lee.png"
-                                            alt="拡大したLさんの証明写真イラスト" width="724" height="640">
-                                    </div>
-                                    <div class="top_saySomethingToJunior_gr">
-                                        <span
-                                            class="top_saySomethingToJunior">専門学校での勉強や将来の仕事に向けて、今のあなたの日本語力が、あなた自身の可能性を大きく引き出してくれるはずです。</span>
-                                    </div>
-                                    <div class="border"></div>
-                                    <div class="top_student_simple_info">
-                                        <p class="top_student_simple_info_name">Lさん</p>
-                                        <p class="top_content_student_job">Webデザイナー</p>
-                                        <p class="top_student_simple_info_etc">2年/　韓国</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </section>
+            </div>
         </section>
-        <section id="more_content">
-            <h2>先輩と一緒に勉強したい！</h2>
-            <section class="movetohp">
-                <dl>
-                    <dt>
-                        <span class="movetohp-title">募集要項</span><br>
-                        <span class="movetohp-title-eng">admission requirements</span>
-                    </dt>
-                    <dd>
-                        <div>
-                            <div id="admission_requirements" class="moreInfo">
-                                <a movetohp-content href="https://www.jec.ac.jp/entrance/guideline/">詳しくはこちら</a>
-                                <div class="icon_move_site"></div>
-                            </div>
-                            <div class="btn_move_site"></div>
+        <!--********** end what-we-focused **********-->
+        <!--********** start interview **********-->
+        <section class="" id="interview">
+            <div class="interview__inner">
+                <div class="interview-header">
+                    <h2 class="p-top-sec__heading">
+                        <span class="en">INTERVIEW</span>
+                        <span class="ja-explain">どの先輩が、どんなメガネを<br>持っているか見てみませんか？</span>
+                    </h2>
+
+                    <div class="nav-buttons">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <article id="kou" class="student-card" data-url="../glassesPage__kou/index.html"
+                                data-name="grade-2 frontend-engineer taiwan">
+
+                                <div class="student-card__thumbnail">
+                                    <img src="../imgs/student-.png" alt="Kさんのプロフィール写真" width="405" height="240">
+                                </div>
+
+                                <div class="student-card__content">
+
+                                    <div class="student-card__tags">
+                                        <span class="tag">2年生</span>
+                                        <span class="tag">フロントエンドエンジニア</span>
+                                        <span class="tag">台湾</span>
+                                    </div>
+
+                                    <p class="student-card__quote">
+                                        企画もデザインもコーディングもやってみる中で、自分に合うものが見えてくるはずです。
+                                    </p>
+
+                                    <p class="student-card__name">K<span>さん</span></p>
+                                </div>
+                            </article>
                         </div>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>
-                        <span class="movetohp-title">出願</span><br>
-                        <span class="movetohp-title-eng" lang="en">applying to school</span>
-                    </dt>
-                    <dd>
-                        <div>
-                            <div id="applying_to_school" class="moreInfo">
-                                <a movetohp-content href="https://www.jec.ac.jp/entrance/application/">詳しくはこちら</a>
-                                <div class="icon_move_site"></div>
-                            </div>
-                            <div class="btn_move_site"></div>
+                        <div class="swiper-slide">
+                            <article id="tet" class="student-card" data-url="../glassesPage__tet/index.html"
+                                data-name="grade-2 frontend-engineer myanmar">
+
+                                <div class="student-card__thumbnail">
+                                    <img src="../imgs/student-.png" alt="Tさんのプロフィール写真" width="405" height="240">
+                                </div>
+
+                                <div class="student-card__content">
+
+                                    <div class="student-card__tags">
+                                        <span class="tag">2年生</span>
+                                        <span class="tag">フロントエンドエンジニア</span>
+                                        <span class="tag">ミャンマー</span>
+                                    </div>
+
+                                    <p class="student-card__quote">
+                                        失敗を恐れずに、まずはやってみること。今のあなたにはそれで十分です。
+                                    </p>
+
+                                    <p class="student-card__name">T<span>さん</span></p>
+                                </div>
+                            </article>
                         </div>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>
-                        <span class="movetohp-title">学費＆<br>学費サポート</span><br>
-                        <span class="movetohp-title-eng" lang="en">tuition fee & financial aid</span>
-                    </dt>
-                    <dd>
-                        <div>
-                            <div id="tuition_fee" class="moreInfo">
-                                <a movetohp-content href="https://www.jec.ac.jp/entrance/support/">詳しくはこちら</a>
-                                <div class="icon_move_site"></div>
-                            </div>
-                            <div class="btn_move_site"></div>
+                        <div class="swiper-slide">
+                            <article id="lee" class="student-card" data-url="../glassesPage__lee/index.html"
+                                data-name="graduate-2026 web-designer korea">
+
+                                <div class="student-card__thumbnail">
+                                    <img src="../imgs/student-.png" alt="Lさんのプロフィール写真" width="405" height="240">
+                                </div>
+
+                                <div class="student-card__content">
+
+                                    <div class="student-card__tags">
+                                        <span class="tag">2026年卒</span>
+                                        <span class="tag">Webデザイナー</span>
+                                        <span class="tag">韓国</span>
+                                    </div>
+
+                                    <p class="student-card__quote">
+                                        専門学校での勉強や将来の仕事に向けて、今のあなたの日本語力が、あなた自身の可能性を大きく引き出してくれるはずです。
+                                    </p>
+
+                                    <p class="student-card__name">L<span>さん</span></p>
+                                </div>
+                            </article>
                         </div>
-                    </dd>
-                </dl>
-            </section>
+                        <div class="swiper-slide">
+                            <article id="coscya" class="student-card" data-url="../glassesPage__coscya/index.html"
+                                data-name="graduate-2026 technical-director russia">
+
+                                <div class="student-card__thumbnail">
+                                    <img src="../imgs/student-.png" alt="Cさんのプロフィール写真" width="405" height="240">
+                                </div>
+
+                                <div class="student-card__content">
+
+                                    <div class="student-card__tags">
+                                        <span class="tag">2026年卒</span>
+                                        <span class="tag">テクニカルディレクター</span>
+                                        <span class="tag">ロシア</span>
+                                    </div>
+
+                                    <p class="student-card__quote">
+                                        日本語を身につけることで自信が生まれ、コミュニケーションの幅が広がり、さまざまなチャンスを掴むことができます。
+                                    </p>
+
+                                    <p class="student-card__name">C<span>さん</span></p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="" id="with-us">
+            <div class="with-us__inner">
+                <h2 class="p-top-sec__heading">
+                    <span class="en">WITH US</span>
+                    <span class="ja-explain">先輩たちと一緒に勉強したいです！</span>
+                </h2>
+                <div class="p-top-sec__cnt">
+                    <ul>
+                        <li>
+                            <div>
+                                <h3 class="title">募集要項</h3>
+                                <a href="">
+                                    <div>
+                                        <img src="imgs/link-out-white.svg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <p>募集条件や必要な手続きを、出願前にもう一度<br>
+                                確認しましょう。「知らなかった」をなくすことが、<br>
+                                安心して学ぶための第一歩です。</p>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 class="title">出願</h3>
+                                <a href="">
+                                    <div>
+                                        <img src="imgs/link-out-white.svg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <p>募集要項と学費の確認ができたら、<br>
+                                安心して出願へ進んでも大丈夫です。</p>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 class="title">学費 ＆ 学費サポート</h3>
+                                <a href="">
+                                    <div>
+                                        <img src="imgs/link-out-white.svg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <p>入学後の生活を具体的に考えるために、<br>
+                                学費やサポート制度も大切なポイントです。<br>
+                                利用できる制度を、事前に確認しておきましょう。</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <ul>
-            <li>インタビュー</li>
-            <li><a href="interview_all/index.html">全てのインタビュー</a></li>
-            <li><a href="interview_1stGrade/index.html">1年生のインタビュー</a></li>
-            <li><a href="interview_2ndGrade/index.html">2年生のインタビュー</a></li>
-            <li><a href="interview_nation/index.html">国籍に分けたインタビュー</a></li>
-            <li><a href="interview_job/index.html">希望職種に分けたインタビュー</a></li>
-        </ul>
-        <div class="footer_illust_animation">
-            <img class="footer_illust_animation_person" src="imgs/illust_person_footer.png" alt="">
-            <img class="footer_illust_glasses glasses1" src="imgs/illust_glasses_round.png" alt="">
-            <img class="footer_illust_glasses glasses2" src="imgs/illust_glasses_half.png" alt="">
-            <img class="footer_illust_glasses glasses3" src="imgs/illust_glasses_silver.png" alt="">
-            <img class="footer_illust_glasses glasses4" src="imgs/illust_glasses_round.png" alt="">
+    <!--********** end main **********-->
+    <!--********** start footer **********-->
+    <footer class="footer">
+        <div class="footer__inner">
+
+            <!-- リンク領域 -->
+            <nav class="footer__nav" aria-label="フッターナビゲーション">
+                <div class="footer__navGroups">
+
+                    <!-- リンクグループ__左上 -->
+                    <div class="footer__group">
+                        <h4 class="footer__groupTitle">Webデザイン科をもっと知りたい方へ</h4>
+                        <ul class="footer__links">
+                            <li class="footer__item"><a href="https://aw-hotpage.jec.ac.jp/"
+                                    class="is-external">公式ブログHot Page</a></li>
+                            <li class="footer__item"><a href="https://event.jec.ac.jp/connect/"
+                                    class="is-external">卒業・進級制作展2025サイト</a></li>
+                            <li class="footer__item"><a href="../glassesListPage/index.html">メガネ一覧ページ</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- リンクグループ__右上 -->
+                    <div class="footer-group">
+                        <h4 class="footer-group__title">入学案内が欲しい方へ</h4>
+                        <ul class="footer__links">
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/foreign/"
+                                    class="is-external">外国人向けの公式サイト</a></li>
+                            <li class="footer__item"><a
+                                    href="https://www.jec.ac.jp/entrance/foreign_guideline/?active-tab=tab-1"
+                                    class="is-external">募集要項</a></li>
+                            <li class="footer__item"><a
+                                    href="https://www.jec.ac.jp/entrance/foreign_guideline/?active-tab=tab-2"
+                                    class="is-external">出願</a></li>
+                            <li class="footer__item"><a
+                                    href="https://www.jec.ac.jp/entrance/foreign_guideline/?active-tab=tab-3"
+                                    class="is-external">学費・学費サポート</a></li>
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/entrance/dormitory/"
+                                    class="is-external">生活サポート</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- リンクグループ__左下 -->
+                    <div class="footer-group">
+                        <h4 class="footer-group__title">学校生活以外の情報が欲しい方へ</h4>
+                        <ul class="footer__links">
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/collegenews_cat2/aw/"
+                                    class="is-external">Webデザイン科ニュース</a></li>
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/life/"
+                                    class="is-external">キャンパスライフ</a></li>
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/request/"
+                                    class="is-external">資料請求</a></li>
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/access/"
+                                    class="is-external">交通アクセス</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- リンクグループ__右下 -->
+                    <div class="footer-group">
+                        <h4 class="footer-group__title">就職に関する情報が欲しい方へ</h4>
+                        <ul class="footer__links">
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/employment/schedule/"
+                                    class="is-external">年間就職スケジュール</a></li>
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/employment/support/"
+                                    class="is-external">キャリアセンター</a></li>
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/employment/job/"
+                                    class="is-external">主な就職先</a></li>
+                            <li class="footer__item"><a href="https://www.jec.ac.jp/employment/referral/"
+                                    class="is-external">職種紹介</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+
+            <!-- 우측 배너 영역 -->
+            <aside class="footer__banners">
+                <a href="https://www.jec.ac.jp/" class="footer__banner">
+                    <span class="footer__bannerMedia">
+                        <img src="imgs/banner-school.svg" alt="日本電子専門学校のロゴ" width: 266 height: 44>
+                    </span>
+
+                    <span class="footer__bannerBody">
+                        <span class="footer__bannerText">
+                            日本電子専門学校の公式サイトへ
+                        </span>
+                        <img class="footer__bannerIcon" aria-hidden="true" src="imgs/link-out-gray.png" width: 10
+                            height: 10 alt="日本電子専門学校の公式サイトへの外部リンク" />
+                    </span>
+                </a>
+
+                <a href="https://www.jec.ac.jp/course/mobile/aw/" class="footer__banner">
+                    <span class="footer__bannerMedia">
+                        <img src="imgs/banner-school.svg" alt="日本電子専門学校のロゴ">
+                    </span>
+
+                    <span class="footer__bannerBody">
+                        <span class="footer__bannerText">
+                            日本電子専門学校の公式サイト内の<br>
+                            Webデザイン科ページへ
+                        </span>
+                        <img class="footer__bannerIcon" aria-hidden="true" src="imgs/link-out-gray.png" width: 10
+                            height: 10 alt="日本電子専門学校の公式サイト内のWebデザイン科ページへの外部リンク" />
+                    </span>
+                </a>
+            </aside>
+
         </div>
-        <p lang="en">Copyright © Japan Electronics College. All Rights Reserved.</p>
+
+        <!-- コピーライト -->
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2026 Japan Electronics college</p>
+            <div>
+                <img src="imgs/icon-white.svg" alt="日本電子専門学校Webデザイン科のロゴ">
+            </div>
+        </div>
     </footer>
+    <!--********** end footer **********-->
 </body>
 
 </html>
